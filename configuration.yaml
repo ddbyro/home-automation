@@ -1,0 +1,70 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+#default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+#tts:
+#  - platform: google_translate
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+config:
+zeroconf:
+ssdp:
+logbook:
+system_health:
+mobile_app:
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+http:
+  base_url: <url:port>
+  ssl_certificate: /config/cert/fullchain.pem
+  ssl_key: /config/cert/privkey.pem
+
+
+cover: !include cover/cover.yaml
+sensor: !include sensor/sensor.yaml
+switch: !include switch/switch.yaml
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 15
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  server_id: 8863
+
+history:
+#nest: !include nest.yaml
+group: !include groups.yaml
+
+telegram_bot: #!include telegram/telegram.yaml
+  - platform: polling
+    api_key: <api-key>
+    allowed_chat_ids:
+      - <chat-id>
+
+notify: !include notify/notify.yaml
+
+
+#mqtt:
+#  broker: <Broker IP>
+
+
+#influxdb:
+#  host: <IP address>
+#  include:
+#    entities:
+#      - sensor.speedtest_download
+#      - sensor.speedtest_upload
+
+google:
+  client_id: <google calendar api url>
+  client_secret: <<google calendar api secret>
