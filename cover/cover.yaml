@@ -1,0 +1,8 @@
+  - platform: mqtt
+    name: Garage_Door
+    state_topic: "pimqttgpio/garage_pi/input/Prox_001"
+    command_topic: "pimqttgpio/garage_pi/output/relay_001/set_off_ms"
+    state_open: "OFF"
+    state_closed: "ON"
+    payload_open: 105
+    payload_close: 105
