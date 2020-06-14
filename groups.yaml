@@ -1,0 +1,5 @@
+  living_room_switches:
+    name: living_room_switches
+    entities:
+      - switch.se_livingroom_lights
+      - switch.sw_livingroom_lights
