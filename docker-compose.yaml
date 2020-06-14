@@ -1,0 +1,14 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/home-assistant:0.111.0
+    volumes:
+      - /etc/letsencrypt/live/<cert>/fullchain.pem:/config/cert/fullchain.pem
+      - /etc/letsencrypt/live/<cert>/privkey.pem:/config/cert/privkey.pem
+      - /home/homeassistant/.homeassistant/:/config
+    environment:
+      - TZ=America/Boise
+    restart: always
+    ports:
+      - "8123:8123"
