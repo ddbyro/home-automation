@@ -31,6 +31,7 @@ speedtestdotnet:
   server_id: 8863
 
 history:
+## Nest API not available yet since Google took it over
 #nest: !include nest.yaml
 group: !include groups.yaml
 
@@ -42,11 +43,11 @@ telegram_bot: #!include telegram/telegram.yaml
 
 notify: !include notify/notify.yaml
 
-
-#mqtt:
+## MQTT is now configured via the UI
+#mqtt: 
 #  broker: <Broker IP>
 
-
+## Not currently using this
 #influxdb:
 #  host: <IP address>
 #  include:
