@@ -1,0 +1,4 @@
+  - platform: broadcast
+    api_key: <api-key>
+    allowed_chat_ids:
+      - <chat-id>
